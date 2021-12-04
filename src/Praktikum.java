@@ -18,10 +18,12 @@ class Praktikum {
 
         while (true) {
             System.out.println("Что вы хотите сделать?");
-            System.out.println("1 — Конвертировать валюту");
-            System.out.println("2 — Получить совет");
-            System.out.println("3 — Ввести трату");
-            System.out.println("0 — Выход");
+            System.out.println("1 - Конвертировать валюту");
+            System.out.println("2 - Получить совет");
+            System.out.println("3 - Ввести трату");
+            // Допишите новый пункт цифрового меню
+            System.out.println("4 - Показать траты за неделю");
+            System.out.println("0 - Выход");
 
             int command = scanner.nextInt();
 
@@ -65,17 +67,17 @@ class Praktikum {
                 int day = scanner.nextInt();
                 System.out.println("Введите размер траты:");
                 double expense = scanner.nextDouble();
-
-                moneyBeforeSalary -= expense; // Уменьшите баланс на сумму введённой траты
-                expenses[day - 1] += expense; // Сохраните трату в массив
-
+                moneyBeforeSalary = moneyBeforeSalary - expense;
+                expenses[day - 1] = expenses[day - 1] + expense;
                 System.out.println("Значение сохранено! Ваш текущий баланс в рублях: " + moneyBeforeSalary);
-                // Проверьте текущее значение баланса — не опустилось ли оно ниже отметки в 1000 рублей
-                // Выведите предупреждение: "На вашем счету осталось совсем немного. Стоит начать экономить!"
                 if (moneyBeforeSalary < 1000) {
                     System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
                 }
-
+            } else if (command == 4) { // Добавьте ветвление для обработки новой команды
+                for (int i = 0; i < expenses.length; i++) {
+                    System.out.println("День " + (i + 1) + ". Потрачено " + expenses[i] + " рублей.");
+                }// Используйте цикл for, чтобы получить все траты — элементы массива expenses
+                // Напечатайте в цикле строку: "День _. Потрачено _ рублей.".
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
