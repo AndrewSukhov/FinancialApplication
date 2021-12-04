@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 class Praktikum {
     public static void main(String[] args) {
-        // Ниже объявите пустой массив expenses для записи трат за неделю
         double[] expenses = new double[7];
 
         double rateUSD = 78.5;
@@ -21,7 +20,7 @@ class Praktikum {
             System.out.println("Что вы хотите сделать?");
             System.out.println("1 — Конвертировать валюту");
             System.out.println("2 — Получить совет");
-            System.out.println("3 — Ввести трату"); // Допишите вывод нового пункта меню
+            System.out.println("3 — Ввести трату");
             System.out.println("0 — Выход");
 
             int command = scanner.nextInt();
@@ -61,19 +60,21 @@ class Praktikum {
                         System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место. :)");
                     }
                 }
-            } else if (command == 3) { // Ещё одно ветвление для обработки новой команды, допишите его условие
-                // Допишите код для печати сообщения для пользователя
-                // Текст сообщения: "За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?"
+            } else if (command == 3) {
                 System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
-                // Получите из консоли день, за который пользователь хочет указать расходы
                 int day = scanner.nextInt();
                 System.out.println("Введите размер траты:");
-                // Получите из консоли значение расходов и сохраните в переменной expense
                 double expense = scanner.nextDouble();
-                // Сохраните полученное значение дневных трат в массив expenses
-                // Не забудьте прибавить новое значение к уже существующим тратам
-                expenses[day - 1] += expense;
-                System.out.println("Значение сохранено!");
+
+                moneyBeforeSalary -= expense; // Уменьшите баланс на сумму введённой траты
+                expenses[day - 1] += expense; // Сохраните трату в массив
+
+                System.out.println("Значение сохранено! Ваш текущий баланс в рублях: " + moneyBeforeSalary);
+                // Проверьте текущее значение баланса — не опустилось ли оно ниже отметки в 1000 рублей
+                // Выведите предупреждение: "На вашем счету осталось совсем немного. Стоит начать экономить!"
+                if (moneyBeforeSalary < 1000) {
+                    System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
+                }
 
             } else if (command == 0) {
                 System.out.println("Выход");
