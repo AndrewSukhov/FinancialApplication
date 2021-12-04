@@ -1,11 +1,14 @@
 class Praktikum {
     public static void main(String[] args) {
-        double rubles = 30000.0;
-        double rateUSD = 78.5;
-        double  dollars = rubles/rateUSD;
 
-        System.out.println(
-                "У вас на счету " + rubles + " рублей. В долларах это " + dollars + " долларов. Так держать!"
-        );
+        double moneyBeforeSalary = 3000.0; // Количество денег до зарплаты
+
+        if (moneyBeforeSalary < 3000) {
+            System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
+        } else if (moneyBeforeSalary < 10000) {
+            System.out.println("Окей, пора в Макдак!");
+        } else {
+            System.out.println("Класс! Заказывайте крабов!");
+        }
     }
 }
