@@ -1,22 +1,32 @@
 class Praktikum {
     public static void main(String[] args) {
 
-        double rubles = 14560.5;
-        double rateUSD = 78.5;
-        double rateEUR = 85.5;
-        double rateJPY = 0.74; // Курс японской иены
+        double moneyBeforeSalary = 150000.0; // Количество денег до зарплаты
+        int daysBeforeSalary = 1;
 
-        String currency = "DKK";
-        System.out.println("Вы конвертируете рубли в " + currency);
+        if (moneyBeforeSalary < 3000) {
+            System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
+        } else if (moneyBeforeSalary < 10000) {
+            if (daysBeforeSalary < 10) {
+                System.out.println("Окей, пора в Макдак!");
+            } else {
+                System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
+            }
 
-        if (currency.equals("USD")) {
-            System.out.println("Ваши сбережения в долларах: " + rubles / rateUSD);
-        } else if (currency.equals("EUR")) {
-            System.out.println("Ваши сбережения в евро: " + rubles / rateEUR);
-        } else if (currency.equals("JPY")) {
-            System.out.println("Ваши сбережения в иенах: " + rubles / rateJPY);
+        } else if (moneyBeforeSalary < 30000) {
+            // Допишите условие
+            if (daysBeforeSalary < 10) {
+                System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место.");
+            } else {
+                System.out.println("Окей, пора в Макдак!");
+            }
+
         } else {
-            System.out.println("Валюта не поддерживается.");
+            if (daysBeforeSalary < 10) {
+                System.out.println("Класс! Заказывайте крабов!");
+            } else {
+                System.out.println("Неплохо! Прикупите долларов и зайдите поужинать в классное место.");
+            }
         }
     }
 }
