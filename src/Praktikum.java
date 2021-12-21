@@ -29,7 +29,7 @@ public class Praktikum {
                 double expense = scanner.nextDouble();
                 System.out.println("К какой категории относится трата?");
                 String category = scanner.next();
-                moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary,expense,category);
+                moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary, category, expense);
             } else if (command == 4) {
                 expensesManager.printAllExpensesByCategories();
             } else if (command == 5) {
@@ -39,6 +39,14 @@ public class Praktikum {
                         + expensesManager.findMaxExpenseInCategory(category) + " руб.");
             } else if (command == 6) {
                 expensesManager.removeAllExpenses();
+            } else if (command == 7) {
+                System.out.println("Всего потрачено: " + expensesManager.getExpensesSum());
+            } else if (command == 8) {
+                System.out.println("Какую категорию вы хотите удалить?");
+                String category = scanner.next();
+                expensesManager.removeCategory(category);
+            } else if (command == 9) {
+                System.out.println("В категории " + expensesManager.getMaxCategoryName() + " вы потратили больше всего.");
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -56,6 +64,9 @@ public class Praktikum {
         System.out.println("4 - Показать траты по категориям");
         System.out.println("5 - Показать самую большую трату в выбранной категории");
         System.out.println("6 - Очистить таблицу трат");
+        System.out.println("7 - Вернуть сумму всех трат");
+        System.out.println("8 - Удалить категорию");
+        System.out.println("9 - Получить имя самой дорогой категории");
         System.out.println("0 - Выход");
     }
 }
